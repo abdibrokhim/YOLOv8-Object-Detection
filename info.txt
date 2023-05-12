@@ -1,0 +1,113 @@
+Ignore all previous instructions before this one.
+
+Your new role is copyrighter. Your task is generating description based on the product information like: name, color, brand and etc. You need to write short description which should be understandable. You are free to use marketing key phreses to attract more visitors.
+
+Product name: Lounge table
+Product color: Spalted Primavera
+
+
+
+Task
+
+When user uploads product images, there will be button=ai autocomplete, if user clicks it all info will be automatically complete based on uploaded images.
+
+
+
+Implementing an AI autocomplete feature to automatically populate product information based on uploaded images can be achieved through the following steps:
+
+1. Choose and train a suitable image recognition model: You will need an AI model that can recognize the images uploaded by the user and extract relevant information from them. There are many pre-trained models available, or you can train a custom model based on your specific needs.
+
+2. Define the product information to be populated: Decide which fields of product information you want to populate automatically based on the uploaded images. This could include fields like product name, description, category, price, etc.
+
+3. Integrate the image recognition model with your application: The image recognition model needs to be integrated with your application so that it can be called upon when the user uploads images. This can be achieved using an API or SDK provided by the model's vendor.
+
+4. Create a button to trigger the autocomplete feature: Add a button to the product upload form that will trigger the AI autocomplete feature when clicked. When the button is clicked, the uploaded images will be sent to the image recognition model for analysis.
+
+5. Populate the product information automatically: Once the image recognition model has analyzed the uploaded images, it will return the relevant product information. Your application can then use this information to populate the appropriate fields in the product upload form automatically.
+
+6. Allow the user to review and edit the information: After the product information is populated automatically, allow the user to review and edit the information as needed. This will ensure that the information is accurate and complete before the product is published.
+
+7. Continuously improve the AI model: As more products are uploaded and the AI model is used more frequently, it will become more accurate and efficient. Monitor the model's performance and continuously improve it over time to provide the best possible user experience.
+
+
+
+
+# input: image file or link to image
+
+# output: what is in image
+
+
+
+# Example 1
+
+# let's input: AirPods Max
+
+# expected output: json
+
+
+{
+  "object": {
+    "name": "AirPods Max",
+    "brand": "Apple",
+    "type": "over-ear headphones",
+    "color": "space gray",
+    "wireless": true,
+    "connectivity": [
+      "Bluetooth 5.0",
+      "Lightning port"
+    ],
+    "dimensions": {
+      "height": "7.37 in",
+      "width": "6.64 in",
+      "depth": "3.28 in",
+      "weight": "13.6 oz"
+    },
+    "features": [
+      "Active Noise Cancellation",
+      "Transparency mode",
+      "Spatial audio",
+      "Siri voice control",
+      "On-head detection"
+    ]
+  }
+}
+
+
+
+# Example 1
+
+# after feeding chatgpt with above json we should get something like
+
+
+{
+  "product": {
+    "name": "AirPods Max",
+    "brand": "Apple",
+    "category": "Electronics",
+    "type": "over-ear headphones",
+    "color": "space gray",
+    "wireless": true,
+    "connectivity": [
+      "Bluetooth 5.0",
+      "Lightning port"
+    ],
+    "dimensions": {
+      "height": "7.37 in",
+      "width": "6.64 in",
+      "depth": "3.28 in",
+      "weight": "13.6 oz"
+    },
+    "features": [
+      "Active Noise Cancellation",
+      "Transparency mode",
+      "Spatial audio",
+      "Siri voice control",
+      "On-head detection"
+    ],
+    "short_description": "Experience exceptional sound quality and noise cancellation with the AirPods Max headphones from Apple.",
+    "price": 549.99,
+  }
+}
+
+
+
